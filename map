@@ -1,0 +1,36 @@
+window.Webflow ||= [];
+window.Webflow.push(() => {
+    const mapElement = document.querySelector<HTMLElement>('[fs-element="map-target"]');
+
+    if (!mapElement) {
+        return;
+    }
+    
+    const map = new window.google.maps.Map(mapElement, {
+        zoom: 12,
+        center: { lat: 33.7673675, lng: -84.4201305 },
+    });
+    
+    const nyButton = document.querySelector<HTMLAnchorElement>('[fs-element="button-ny"]');
+    
+    if (!nyButton) {
+        return;
+    }
+
+    nyButton.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        map.setCenter({
+            lat: 40.71068343112868,
+            lng: -73.99344701919196,
+        });
+    });
+    
+    const form = document.querySelector<HTMLFormElement>('[fs-element="search-form"]');
+    const input = document.querySelector<HTMLInputElement>('[fs-element="search-input"]');
+    if (!form || !input) {
+        return;
+    }
+
+    
+});
